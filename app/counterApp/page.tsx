@@ -3,27 +3,29 @@
 import { useEffect, useState } from "react";
 
 const CounterApp = () => {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number | null>(null);
 
   // 마운트 시, localstorage에 있는 값 불러오기
   useEffect(() => {
     const savedCount = localStorage.getItem("count");
     if (savedCount !== null) {
       setCount(parseInt(savedCount, 10));
+    } else {
+      setCount(0);
     }
   }, []);
 
   // count 상태값이 변하면, localstorage에 저장
   useEffect(() => {
-    localStorage.setItem("count", count.toString());
+    if (count !== null) localStorage.setItem("count", count.toString());
   }, [count]);
 
   const decreaseBtnClick = () => {
-    setCount(count - 1);
+    if (count !== null) setCount(count - 1);
   };
 
   const increaseBtnClick = () => {
-    setCount(count + 1);
+    if (count !== null) setCount(count + 1);
   };
 
   return (
