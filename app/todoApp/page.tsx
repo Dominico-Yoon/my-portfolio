@@ -1,12 +1,8 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
-
-interface Data {
-  id: number;
-  todo: string;
-  isDone: boolean;
-}
+import TodoInput from "./components/TodoInput";
+import TodoList from "./components/TodoList";
 
 const mockData: Data[] = [
   {
@@ -50,26 +46,12 @@ const TodoApp = () => {
 
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          value={newTodo}
-          onChange={handleInputChange}
-          placeholder="새 할일을 입력하세요."
-        />
-        <button onClick={addTodo}>추가</button>
-      </div>
-      <div>
-        {todos.map((item) => {
-          return (
-            <div key={item.id}>
-              <input type="checkbox" />
-              <div>{item.todo}</div>
-              <button onClick={() => deleteTodo(item.id)}>삭제</button>
-            </div>
-          );
-        })}
-      </div>
+      <TodoInput
+        handleInputChange={handleInputChange}
+        newTodo={newTodo}
+        addTodo={addTodo}
+      />
+      <TodoList todos={todos} deleteTodo={deleteTodo} />
     </div>
   );
 };
