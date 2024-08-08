@@ -40,6 +40,14 @@ const TodoApp = () => {
     setNewTodo(e.target.value);
   };
 
+  const updateTodo = (targetId: number) => {
+    setTodos(
+      todos.map((item) =>
+        item.id === targetId ? { ...item, isDone: !item.isDone } : item
+      )
+    );
+  };
+
   const deleteTodo = (targetId: number) => {
     setTodos(todos.filter((item) => item.id !== targetId));
   };
@@ -51,7 +59,7 @@ const TodoApp = () => {
         newTodo={newTodo}
         addTodo={addTodo}
       />
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
     </div>
   );
 };

@@ -3,17 +3,21 @@ import TodoItem from "./TodoItem";
 
 interface Props {
   todos: Data[];
+  updateTodo: (targetId: number) => void;
   deleteTodo: (targetId: number) => void;
 }
 
-const TodoList: FC<Props> = ({ todos, deleteTodo }) => {
+const TodoList: FC<Props> = ({ todos, updateTodo, deleteTodo }) => {
   return (
     <div>
       {todos.map((item) => {
         return (
-          <div key={item.id}>
-            <TodoItem deleteTodo={deleteTodo} item={item} />
-          </div>
+          <TodoItem
+            key={item.id}
+            updateTodo={updateTodo}
+            deleteTodo={deleteTodo}
+            item={item}
+          />
         );
       })}
     </div>
