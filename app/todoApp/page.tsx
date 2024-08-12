@@ -3,6 +3,7 @@
 import { ChangeEvent, useState } from "react";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import styles from "./todoApp.module.css";
 
 const mockData: Data[] = [
   {
@@ -53,13 +54,14 @@ const TodoApp = () => {
   };
 
   return (
-    <div>
+    <div className={styles.todoApp}>
+      <h2>할 일 생성</h2>
       <TodoInput
         handleInputChange={handleInputChange}
         newTodo={newTodo}
         addTodo={addTodo}
       />
-      <TodoList todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} setTodos={setTodos} deleteTodo={deleteTodo} />
     </div>
   );
 };

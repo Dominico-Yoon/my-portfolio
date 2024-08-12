@@ -1,0 +1,31 @@
+.body {
+  margin: 30px;
+  background-color: #363636;
+  color: #ececec;
+}
+
+.linkContainer {
+  display: flex;
+  gap: 25px;
+  color: white;
+}
+
+.link {
+  color: #ececec;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: skyblue;
+}
+
+.linkContainer h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkImage {
+  border-radius: 5px;
+  overflow: hidden;
+}

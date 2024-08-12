@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import styles from "./counterApp.module.css";
 
 const CounterApp = () => {
   const [count, setCount] = useState<number>(() => {
@@ -23,11 +24,21 @@ const CounterApp = () => {
     setCount(count + 1);
   };
 
+  const countClass = count >= 0 ? styles.positvie : styles.negative;
+
   return (
-    <div>
-      <button onClick={decreaseBtnClick}> - </button>
-      <div>{count}</div>
-      <button onClick={increaseBtnClick}> + </button>
+    <div className={`${styles.counterApp} ${countClass}`}>
+      <h2>카운터</h2>
+      <div className={styles.countContainer}>
+        <button className={styles.button} onClick={decreaseBtnClick}>
+          -
+        </button>
+        <div className={styles.count}>{count}</div>
+        <button className={styles.button} onClick={increaseBtnClick}>
+          +
+        </button>
+      </div>
+      <div>{count >= 0 ? <div>양수입니다.</div> : <div>음수입니다.</div>}</div>
     </div>
   );
 };
