@@ -1,0 +1,48 @@
+.counterApp {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  color: black;
+  width: 500px;
+  height: 500px;
+  margin-top: 20px;
+  margin-left: 50px;
+  align-items: center;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.countContainer {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  background-color: #0071f3;
+  color: white;
+  border: 0;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.button:hover {
+  background-color: #005bb580;
+}
+
+.count {
+  font-size: 2rem;
+  margin: 20px;
+}
+
+.positive {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.negative {
+  background-color: black;
+  color: white;
+}

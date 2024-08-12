@@ -1,0 +1,186 @@
+.todoApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  color: black;
+  width: 500px;
+  height: 100vh;
+  margin-top: 20px;
+  margin-left: 50px;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.todoInput {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+
+.todoInputContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.todoInputContainer input {
+  width: 200px;
+  background: #a6cefb;
+  border: none;
+  border-radius: 8px;
+}
+
+.todoInputContainer input:focus {
+  background: #dbebfe;
+  color: #363636;
+  font-weight: bold;
+}
+
+.addBtn {
+  background-color: #318eff;
+  color: #ececec;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  background: #276ecf;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.todoList {
+  margin-top: 10px;
+  width: 70%;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.btnContainer button {
+  font-size: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  outline: none;
+}
+
+.selectAllBtn {
+  border: none;
+  border-radius: 5px;
+  background: #318eff;
+  color: white;
+}
+
+.selectAllBtn:hover {
+  background: #276ecf;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selectAllBtn:disabled {
+  background: #b0cfff;
+  cursor: not-allowed;
+}
+
+.selectDelBtn {
+  border: none;
+  border-radius: 5px;
+  background: #ff4747;
+  color: white;
+}
+
+.selectDelBtn:hover {
+  background: #d63a3a;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selectDelBtn:disabled {
+  background: #ffb0b0;
+  cursor: not-allowed;
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.todoItem input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.todoItem div {
+  flex-grow: 1;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.itemDelBtn {
+  font-size: 13px;
+  padding: 3px 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  outline: none;
+  margin-left: 10px;
+  background-color: #ff4747;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.itemDelBtn:hover {
+  background: #d63a3a;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 모달 스타일링 */
+.modalComponent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  /* width: 50px; */
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+}
+
+.modal button:first-of-type {
+  background-color: red;
+}
+
+.modal button:last-of-type {
+  background: gray;
+}
