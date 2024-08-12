@@ -1,6 +1,8 @@
 import { getCommentByPostId, getPostById, getUserById } from "@/api";
+import PostDetail from "./components/PostDetail";
+import PostComment from "./components/PostComment";
 
-const PostDetail = async ({ params }: { params: { id: string } }) => {
+const Post = async ({ params }: { params: { id: string } }) => {
   try {
     const [post, user, comments] = await Promise.all([
       getPostById(parseInt(params.id)),
@@ -12,16 +14,10 @@ const PostDetail = async ({ params }: { params: { id: string } }) => {
 
     return (
       <div>
-        <h1>{post?.title}</h1>
-        <p>{post?.body}</p>
-        <h2>{user?.name}</h2>
+        <PostDetail post={post} user={user} />
         <div>
           {comments.map((comment: Comment) => (
-            <div key={comment.id}>
-              <div>이름 : {comment.name}</div>
-              <div>이메일 : {comment.email}</div>
-              <div>내용 : {comment.body}</div>
-            </div>
+            <PostComment key={comment.id} comment={comment} />
           ))}
         </div>
       </div>
@@ -35,4 +31,4 @@ const PostDetail = async ({ params }: { params: { id: string } }) => {
   }
 };
 
-export default PostDetail;
+export default Post;

@@ -3,6 +3,7 @@
 import { getPosts } from "@/api";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import PostList from "./components/PostList";
 
 const PostApp = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -23,13 +24,7 @@ const PostApp = () => {
   return (
     <div>
       <h1>게시판</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link href={`/postApp/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <PostList posts={posts} />
     </div>
   );
 };
