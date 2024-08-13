@@ -17,6 +17,9 @@ export default function RootLayout({
           <Link href="/todoApp" className={styles.link}>
             TodoApp
           </Link>
+          <Link href="/postApp" className={styles.link}>
+            PostApp
+          </Link>
         </nav>
         {children}
       </body>

@@ -1,0 +1,236 @@
+.postApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.postApp h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.btnContainer {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.createBtn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.createBtn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.createBtn:active {
+  transform: translateY(0);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.pagination .activePage {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.PostList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.PostList li {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.PostList li:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.PostList li a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.PostList li a:hover {
+  color: #0056b3;
+}
+
+.post {
+  background-color: #f9f9f9;
+  /* background-color: black; */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.postDetail {
+  margin-bottom: 20px;
+}
+
+.postDetail h1 {
+  margin: 0;
+  /* font-size: 24px; */
+  color: #333;
+}
+
+.postDetail p {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.postDetail h2 {
+  font-size: 14px;
+  color: #888;
+}
+
+.post button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.post button:hover {
+  background-color: #c0392b;
+}
+
+.postComment {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 4px solid #007bff;
+}
+
+.postComment div {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.postComment div:last-child {
+  margin-bottom: 0;
+}
+
+.createPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.createPost h1 {
+  margin-bottom: 24px;
+  color: black;
+  text-align: center;
+}
+
+.createFrom {
+  width: 100%;
+}
+
+.containerTitle,
+.containerBody {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.containerTitle label,
+.containerBody label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555555;
+}
+
+.createForm input[type="text"],
+.createForm textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.createForm input[type="text"]:focus,
+.createForm textarea:focus {
+  border-color: #888;
+  outline: none;
+}
+
+.createForm textarea {
+  height: 150px;
+  resize: none;
+}
+
+.createPostBtn {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.createPostBtn:hover {
+  background-color: #0056b3;
+}

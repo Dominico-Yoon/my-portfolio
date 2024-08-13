@@ -33,6 +33,13 @@ export default function Home() {
               />
             </div>
           </Link>
+
+          <div>
+            <h2>게시판 앱</h2>
+            <Link href="/postApp">
+              <div className={styles.linkImage}>게시판앱</div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
