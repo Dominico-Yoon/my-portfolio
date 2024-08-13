@@ -3,6 +3,7 @@
 import { createPost } from "@/api";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
+import styles from "../postApp.module.css";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -33,18 +34,20 @@ const CreatePost = () => {
   };
 
   return (
-    <div>
+    <div className={styles.createPost}>
       <h1>게시글 생성</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form className={styles.createForm} onSubmit={handleSubmit}>
+        <div className={styles.containerTitle}>
           <label>제목 : </label>
           <input onChange={onChangeTitle} value={title} type="text" />
         </div>
-        <div>
+        <div className={styles.containerBody}>
           <label>내용 : </label>
           <textarea onChange={onChangeBody} value={body} />
         </div>
-        <button type="submit">게시글 생성</button>
+        <button className={styles.createPostBtn} type="submit">
+          게시글 생성
+        </button>
       </form>
     </div>
   );
