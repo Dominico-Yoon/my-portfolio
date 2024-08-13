@@ -1,34 +1,74 @@
-import { getCommentByPostId, getPostById, getUserById } from "@/api";
+"use client";
+
+import {
+  deletePost,
+  getCommentByPostId,
+  getPostById,
+  getUserById,
+} from "@/api";
 import PostDetail from "./components/PostDetail";
 import PostComment from "./components/PostComment";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
-const Post = async ({ params }: { params: { id: string } }) => {
-  try {
-    const [post, user, comments] = await Promise.all([
-      getPostById(parseInt(params.id)),
-      getUserById(parseInt(params.id)),
-      getCommentByPostId(parseInt(params.id)),
-    ]);
+const Post = ({ params }: { params: { id: string } }) => {
+  const [post, setPost] = useState<Post | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
-    if (!post) return <div>불러오는 중입니다...</div>;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [fetchPost, fetchUser, fetchComments] = await Promise.all([
+          getPostById(parseInt(params.id)),
+          getUserById(parseInt(params.id)),
+          getCommentByPostId(parseInt(params.id)),
+        ]);
 
-    return (
-      <div>
-        <PostDetail post={post} user={user} />
-        <div>
-          {comments.map((comment: Comment) => (
-            <PostComment key={comment.id} comment={comment} />
-          ))}
-        </div>
-      </div>
-    );
-  } catch (error) {
-    if (error instanceof Error) {
-      return <div>Error: {error.message}</div>;
-    } else {
-      return <div>An unknown error occurred</div>;
+        setPost(fetchPost);
+        setUser(fetchUser);
+        setComments(fetchComments);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [params.id]);
+
+  const handleDelete = async () => {
+    try {
+      await deletePost(parseInt(params.id));
+      alert("삭제 완료 했습니다.");
+      router.push("/postApp");
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      alert("삭제에 실패 하였습니다.");
     }
-  }
+  };
+
+  const handleTest = () => {
+    console.log(post);
+  };
+
+  if (isLoading) return <div>불러오는 중입니다...</div>;
+
+  return (
+    <div>
+      <button onClick={handleTest}>테스트 버튼</button>
+      <PostDetail post={post} user={user} />
+      <button onClick={handleDelete}>삭제하기</button>
+      <div>
+        {comments.map((comment: Comment) => (
+          <PostComment key={comment.id} comment={comment} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Post;

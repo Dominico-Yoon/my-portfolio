@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 interface Props {
-  post: Post;
-  user: User;
+  post: Post | null;
+  user: User | null;
 }
 
 const PostDetail: FC<Props> = ({ post, user }) => {

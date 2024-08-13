@@ -43,3 +43,27 @@ export const getCommentByPostId = async (postId: number) => {
     throw error;
   }
 };
+
+export const createPost = async (data: {
+  title: string;
+  body: string;
+  userId: number;
+}) => {
+  try {
+    const res = await instance.post("/posts", data);
+    return res.data;
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    throw error;
+  }
+};
+
+export const deletePost = async (postId: number) => {
+  try {
+    const res = await instance.delete(`/posts/${postId}`);
+    return res.data;
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    throw error;
+  }
+};

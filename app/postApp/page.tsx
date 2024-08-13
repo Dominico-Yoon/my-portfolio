@@ -24,6 +24,10 @@ const PostApp = () => {
   return (
     <div>
       <h1>게시판</h1>
+      <Link href="/postApp/create">
+        <button>게시글 추가</button>
+      </Link>
+
       <PostList posts={posts} />
     </div>
   );
