@@ -1,4 +1,5 @@
 import { FC } from "react";
+import styles from "../../postApp.module.css";
 
 interface Props {
   post: Post | null;
@@ -7,7 +8,7 @@ interface Props {
 
 const PostDetail: FC<Props> = ({ post, user }) => {
   return (
-    <div>
+    <div className={styles.postDetail}>
       <h1>{post?.title}</h1>
       <p>{post?.body}</p>
       <h2>{user?.name}</h2>

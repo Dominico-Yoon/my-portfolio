@@ -10,16 +10,18 @@ import PostDetail from "./components/PostDetail";
 import PostComment from "./components/PostComment";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import styles from "../postApp.module.css";
 
 const Post = ({ params }: { params: { id: string } }) => {
   const [post, setPost] = useState<Post | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
         const [fetchPost, fetchUser, fetchComments] = await Promise.all([
           getPostById(parseInt(params.id)),
@@ -51,15 +53,10 @@ const Post = ({ params }: { params: { id: string } }) => {
     }
   };
 
-  const handleTest = () => {
-    console.log(post);
-  };
-
   if (isLoading) return <div>불러오는 중입니다...</div>;
 
   return (
-    <div>
-      <button onClick={handleTest}>테스트 버튼</button>
+    <div className={styles.post}>
       <PostDetail post={post} user={user} />
       <button onClick={handleDelete}>삭제하기</button>
       <div>

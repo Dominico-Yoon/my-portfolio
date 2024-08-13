@@ -4,6 +4,7 @@ import { getPosts } from "@/api";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import PostList from "./components/PostList";
+import styles from "./postApp.module.css";
 
 const PostApp = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -22,11 +23,13 @@ const PostApp = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.postApp}>
       <h1>게시판</h1>
-      <Link href="/postApp/create">
-        <button>게시글 추가</button>
-      </Link>
+      <div className={styles.btnContainer}>
+        <Link href="/postApp/create">
+          <button className={styles.createBtn}>게시글 추가</button>
+        </Link>
+      </div>
 
       <PostList posts={posts} />
     </div>

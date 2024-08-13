@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FC } from "react";
+import styles from "../postApp.module.css";
 
 interface Props {
   posts: Post[];
@@ -7,7 +8,7 @@ interface Props {
 
 const PostList: FC<Props> = ({ posts }) => {
   return (
-    <div>
+    <div className={styles.PostList}>
       {posts.map((post) => (
         <li key={post.id}>
           <Link href={`/postApp/${post.id}`}>{post.title}</Link>
