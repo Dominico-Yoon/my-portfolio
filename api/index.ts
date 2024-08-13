@@ -4,14 +4,12 @@ const instance: Axios = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com/",
 });
 
-export const getPosts = async () => {
-  try {
-    const res = await instance.get("posts");
-    return res.data;
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    throw error;
-  }
+export const getPosts = async (page: number = 1, limit: number = 10) => {
+  const res = await instance.get(`posts?_page=${page}&_limit=${limit}`);
+  return {
+    data: res.data,
+    total: parseInt(res.headers["x-total-count"], 10),
+  };
 };
 
 export const getPostById = async (id: number) => {
@@ -36,7 +34,7 @@ export const getUserById = async (id: number) => {
 
 export const getCommentByPostId = async (postId: number) => {
   try {
-    const res = await instance.get(`post/${postId}/comments`);
+    const res = await instance.get(`posts/${postId}/comments`);
     return res.data;
   } catch (error) {
     console.error("Error fetching post:", error);
