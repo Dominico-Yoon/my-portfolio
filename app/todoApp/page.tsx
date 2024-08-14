@@ -29,9 +29,13 @@ const TodoApp = () => {
 
   const addTodo = () => {
     if (newTodo.trim()) {
+      // 가장 큰 id값을 찾는 로직 추가
+      const maxId =
+        todos.length > 0 ? Math.max(...todos.map((item) => item.id)) : 0;
+
       setTodos((prevTodos) => [
         ...prevTodos,
-        { id: prevTodos.length, todo: newTodo, isDone: false },
+        { id: maxId + 1, todo: newTodo, isDone: false },
       ]);
       setNewTodo("");
     }
