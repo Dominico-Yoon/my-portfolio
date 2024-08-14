@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, KeyboardEvent, useEffect, useRef } from "react";
+import { ChangeEvent, FC, KeyboardEvent } from "react";
 import styles from "../todoApp.module.css";
 
 interface Props {
@@ -8,14 +8,6 @@ interface Props {
 }
 
 const TodoInput: FC<Props> = ({ newTodo, handleInputChange, addTodo }) => {
-  // const enterPressed = useRef(false);
-
-  // useEffect(() => {
-  //   if (enterPressed.current) {
-  //     addTodo();
-  //     enterPressed.current = false;
-  //   }
-  // }, [newTodo]);
   // 엔터 누를 시 todo 생성 하는 함수
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -23,7 +15,6 @@ const TodoInput: FC<Props> = ({ newTodo, handleInputChange, addTodo }) => {
       e.preventDefault();
 
       addTodo();
-      // enterPressed.current = true;
     }
   };
 
