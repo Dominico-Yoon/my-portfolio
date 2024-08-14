@@ -9,7 +9,6 @@ interface Props {
 const PostDetail: FC<Props> = ({ post, user }) => {
   return (
     <div className={styles.postDetail}>
-      <h1>{post?.title}</h1>
       <p>{post?.body}</p>
       <h2>{user?.name}</h2>
     </div>

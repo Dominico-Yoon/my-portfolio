@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import PostList from "./components/PostList";
 import styles from "./postApp.module.css";
+import PostHeader from "./components/PostHeader";
 
 const PostApp = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -32,7 +33,7 @@ const PostApp = () => {
 
   return (
     <div className={styles.postApp}>
-      <h1>게시판</h1>
+      <PostHeader text="<" title="게시판" />
       <div className={styles.btnContainer}>
         <Link href="/postApp/create">
           <button className={styles.createBtn}>게시글 추가</button>

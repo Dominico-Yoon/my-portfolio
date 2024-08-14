@@ -4,6 +4,7 @@ import { createPost } from "@/api";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "../postApp.module.css";
+import PostHeader from "../components/PostHeader";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -35,7 +36,7 @@ const CreatePost = () => {
 
   return (
     <div className={styles.createPost}>
-      <h1>게시글 생성</h1>
+      <PostHeader text="<" title="게시글 생성" />
       <form className={styles.createForm} onSubmit={handleSubmit}>
         <div className={styles.containerTitle}>
           <label>제목 : </label>

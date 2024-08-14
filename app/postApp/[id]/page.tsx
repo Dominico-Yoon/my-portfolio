@@ -11,6 +11,7 @@ import PostComment from "./components/PostComment";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../postApp.module.css";
+import PostHeader from "../components/PostHeader";
 
 const Post = ({ params }: { params: { id: string } }) => {
   const [post, setPost] = useState<Post | null>(null);
@@ -57,8 +58,11 @@ const Post = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className={styles.post}>
+      <PostHeader text="<" title={post?.title} />
       <PostDetail post={post} user={user} />
-      <button onClick={handleDelete}>삭제하기</button>
+      <button className={styles.postDelBtn} onClick={handleDelete}>
+        삭제하기
+      </button>
       <div>
         {comments.map((comment: Comment) => (
           <PostComment key={comment.id} comment={comment} />
