@@ -4,17 +4,26 @@ import { useEffect, useState } from "react";
 import styles from "./counterApp.module.css";
 
 const CounterApp = () => {
-  const [count, setCount] = useState<number>(() => {
-    // localstorage에 있는 값 불러오기
-    const savedCount = localStorage.getItem("count");
+  const [count, setCount] = useState<number>(0);
+  const [isClient, setIsClient] = useState<boolean>(false);
 
-    return savedCount !== null ? parseInt(savedCount, 10) : 0;
-  });
-
-  // count 상태값이 변하면, localstorage에 저장
   useEffect(() => {
-    localStorage.setItem("count", count.toString());
-  }, [count]);
+    // 클라이언트 사이드에서만 실행
+    setIsClient(true);
+
+    if (isClient) {
+      const savedCount = localStorage.getItem("count");
+      if (savedCount !== null) {
+        setCount(parseInt(savedCount, 10));
+      }
+    }
+  }, [isClient]);
+
+  useEffect(() => {
+    if (isClient) {
+      localStorage.setItem("count", count.toString());
+    }
+  }, [count, isClient]);
 
   const decreaseBtnClick = () => {
     setCount(count - 1);
