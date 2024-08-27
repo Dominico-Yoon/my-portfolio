@@ -6,6 +6,8 @@ const instance: Axios = axios.create({
 
 export const getPosts = async (page: number = 1, limit: number = 10) => {
   const res = await instance.get(`posts?_page=${page}&_limit=${limit}`);
+  console.log(res);
+  console.log(res.data);
   return {
     data: res.data,
     total: parseInt(res.headers["x-total-count"], 10),
